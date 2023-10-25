@@ -1,4 +1,4 @@
-FROM python:3.7.3-stretch
+FROM python:3.7.6
 
 ## Step 1:
 # Create a working directory
@@ -12,10 +12,11 @@ COPY . /app
 # Install packages from requirements.txt using make file
 # hadolint ignore=DL3013
 RUN make install
+# python -m pip install pip==19.2.3
 
 ## Step 4:
 # Expose port 80
-EXPOSE 80
+EXPOSE 8080
 
 ## Step 5:
 # Run app.py at container launch
