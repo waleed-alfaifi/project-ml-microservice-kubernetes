@@ -1,1 +1,8 @@
-<paste log output from Kubernetes-mediated prediction, here>
+deployment.apps/udacity-project-4 created
+NAME                                   READY   STATUS              RESTARTS   AGE
+kubernetes-bootcamp-855d5cc575-9dh9h   1/1     Running             0          54m
+udacity-project-4-ccf457b66-ns6dc      0/1     ContainerCreating   0          0s
+pod/udacity-project-4-ccf457b66-ns6dc condition met
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
