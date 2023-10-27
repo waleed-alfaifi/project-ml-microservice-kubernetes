@@ -5,25 +5,21 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath="udacity-project-4:v1.0.0"
+dockerpath="waleed83/udacity-project-4:v1.0.0"
 
 # Step 2:  
 # login to docker
 docker login
 
 
-# Get username from terminal input
-echo "Enter your docker username:"
-read username
-
 # Tag and print
-docker tag udacity-project-4:latest $username/$dockerpath
-echo "Docker ID and Image: $username/$dockerpath"
+docker tag udacity-project-4:latest $dockerpath
+echo "Docker ID and Image: $dockerpath"
 
 
 # Step 3:
 # Push image to a docker repository
-docker push $username/$dockerpath
+docker push $dockerpath
 
 
 
