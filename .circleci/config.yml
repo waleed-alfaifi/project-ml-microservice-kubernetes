@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
     # Use the same Docker base as the project
-    - image: python:3.7.3-stretch
+    - image: python:3.7.6
     working_directory: ~/repo
     steps:
       - checkout
@@ -26,14 +26,18 @@ jobs:
             # Install hadolint
             wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
             chmod +x /bin/hadolint
-            - save_cache:
-            paths:
-            - ./venv
-            key: v1-dependencies-{{ checksum "requirements.txt" }}
-
-            # run lint!
-            - run:
-            name: run lint
-            command: |
+      - save_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+          paths:
+          - ./venv
+      # run lint!
+      - run:
+          name: run lint
+          command: |
             . venv/bin/activate
             make lint 
+
+workflows:
+  default:
+    jobs:
+      - build
